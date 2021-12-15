@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body>
+<div>
+    <h2 style="text-align: left">Informatii despre Studenti</h2>
+    <tr>
+        <div  style="text-align: left" >
+            <button type="button" class="btn btn-secondary" ><a th:href="@{'/new'}">Adauga studenti</a></button>
+            <!--<h3><a  th:href="@{'/new'}">Adauga studenti</a></h3>-->
+        </div>
+    </tr>
+    <tr>
+        <div class="col-sm-5" alight = "center">
+            <div class="panel-body" align = "center" >
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>ID Student </th>
+                        <th>Nume/Prenume</th>
+                        <th>Grupa</th>
+                        <th>Nota Finală</th>
+                        <th>Editeaza</th>
+                        <th>Sterge</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr  th:each="student : ${liststudent }">
+                        <td th:text="${student.id}">Student ID</td>
+                        <td th:text="${student.studentname}">StudentName</td>
+                        <td th:text="${student.course}">Course</td>
+                        <td th:text="${student.fee}">Fee</td>
+                        <td>
+                            <a th:href="@{'/edit/' + ${student.id}}">Editeaza</a>
+                        </td>
+                        <td>
+                            <a th:href="@{'/delete/' + ${student.id}}">Sterge</a>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </tr>
+
+    </tbody>
+    </table>
+    <div>
+</body>
+</html>

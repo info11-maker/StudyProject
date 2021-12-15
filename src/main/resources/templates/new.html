@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body>
+
+<div alight="center">
+    <h1>Adauga un nou student</h1>
+    <br />
+    <div class="col-sm-4">
+        <form action="#" th:action="@{/save}" th:object="${student}" method="post">
+
+
+            <div alight="center">
+                <tr>
+                    <label class="form-label" >Nume Prenume</label>
+                    <td>
+                        <input type="hidden" th:field="*{id}" />
+                        <input type="text" th:field="*{studentname}" class="form-control" placeholder="Nume Prenume" />
+                    </td>
+                </tr>
+            </div>
+
+            <div alight="center">
+
+                <tr>
+                    <label class="form-label" >Grupa</label>
+                    <td><input type="text" th:field="*{course}" class="form-control" placeholder="Grupa" /></td>
+                </tr>
+            </div>
+            <div alight="center">
+                <tr>
+                    <label class="form-label" >Nota Finala</label>
+                    <td><input type="text" th:field="*{fee}" class="form-control" placeholder="Nota Finala" /></td>
+                </tr>
+            </div>
+            <br>
+            <tr>
+                <td colspan="2"><button type="submit" class="btn btn-info">Save</button> </td>
+            </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
